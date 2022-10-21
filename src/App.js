@@ -31,6 +31,7 @@ function TodoItemCreator(){
         isComplete: false,
       },
     ]);
+    
     setInputValue('');
   };
 
@@ -106,24 +107,18 @@ function removeItemAtIndex(arr, index) {
 
 function TodoList(){
   const todoList = useRecoilValue(todoListState)
-
+  console.log(todoList)
   return (
-    <div>
+    <>
       {/* todo */}
       {/* todo */}
-
-      
-      <TodoItemCreator />
-
-      
-      { 
-        todoList.map((todoItem) => {
-          <todoItem key={todoItem.id} item={todoItem}/>
-        })
+        
+      <TodoItemCreator />      
+      { todoList.map((todoItem) => (
+          <TodoItem key={todoItem.id} item={todoItem}/>
+        ))
       }
-      
-
-    </div>
+    </>
   )
 }
 
